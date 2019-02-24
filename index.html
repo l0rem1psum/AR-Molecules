@@ -1,17 +1,55 @@
 <!doctype HTML>
 <html>
-<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+
+<head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+    <style type="text/css">
+        .info_container {
+            color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(127, 127, 127, 0.5);
+            display: inline-block;
+            padding: 0.5em;
+            margin: 0.5em;
+            text-align: left;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
 
 <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
         <a-assets>
-            <a-asset-item id="tree" src="models/Ibuprofen_3544.gltf"></a-asset-item>
+            <a-asset-item id="penicillin" src="AR-Molecules/models/PENICILLIN F SODIUM_34984153.gltf"></a-asset-item>
+
+            <a-asset-item id="benzene" src="AR-Molecules/models/Benzene_236.gltf"></a-asset-item>
+
+            <a-asset-item id="aceticacid" src="AR-Molecules/models/Acetic acid_171.gltf"></a-asset-item>
+            <a-asset-item id="ibuprofen" src="AR-Molecules/models/Ibuprofen_3544.gltf"></a-asset-item>
+            <a-asset-item id="aspirin" src="AR-Molecules/models/Aspirin_2157.gltf"></a-asset-item>
         </a-assets>
         <!-- a-marker preset="custom" type="pattern" url="benzene.patt" -->
-        <a-marker preset="hiro">
-            <a-entity scale="2000000000 2000000000 2000000000" gltf-model="#tree"></a-entity>
+        <a-marker preset="custom" type="pattern" url="AR-Molecules/markers/penicillin.patt">
+            <a-entity scale="1000000000 1000000000 1000000000" gltf-model="#penicillin"></a-entity>
         </a-marker>
+        <!-- a-marker preset="hiro"-->
+        <a-marker preset="custom" type="pattern" url="AR-Molecules/markers/benzene.patt">
+            <a-entity scale="2000000000 2000000000 2000000000" gltf-model="#benzene"></a-entity>
+        </a-marker>
+        <!-- a-marker preset="hiro" -->
+        <a-marker preset="custom" type="pattern" url="AR-Molecules/markers/aceticacid.patt">
+            <a-entity scale="2000000000 2000000000 2000000000" gltf-model="#aceticacid"></a-entity>
+        </a-marker>
+        <a-marker preset="custom" type="pattern" url="AR-Molecules/markers/Ibuprofen.patt">
+            <a-entity scale="2000000000 2000000000 2000000000" gltf-model="#ibuprofen"></a-entity>
+        </a-marker>
+        <a-marker preset="custom" type="pattern" url="AR-Molecules/markers/aspirin.patt">
+            <a-entity scale="2000000000 2000000000 2000000000" gltf-model="#aspirin"></a-entity>
+        </a-marker>
+
         <a-entity camera></a-entity>
     </a-scene>
 </body>
